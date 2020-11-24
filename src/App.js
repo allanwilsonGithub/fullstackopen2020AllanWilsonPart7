@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
-  Switch, Route, Link
+  Switch, Route, Link, useRouteMatch
 } from "react-router-dom"
 
 
@@ -119,13 +119,12 @@ const App = () => {
   }
 
   return (
-    <Router>
-      <h1>Software anecdotes</h1>
+
       <div>
+        <h1>Software anecdotes</h1>
         <Link style={padding} to="/">Anecdotes</Link>
         <Link style={padding} to="/create">Create</Link>
         <Link style={padding} to="/about">About</Link>
-      </div>
 
       <Switch>
         <Route path="/create">
@@ -140,7 +139,7 @@ const App = () => {
       </Switch>
 
       <Footer />
-    </Router>
+      </div>
   )
 }
 
