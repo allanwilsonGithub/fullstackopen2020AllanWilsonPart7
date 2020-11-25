@@ -4,10 +4,23 @@ import {
   Switch, Route, Link, useRouteMatch, useHistory
 } from "react-router-dom"
 
+const Notification = ({notification}) => {
+  return (
+    <h1>{notification}</h1>
+  )
+  setTimeout (() => {
+    return (
+      <h1></h1>
+    )
+  }, 3000)
+}
 
-const Anecdotes = ({anecdotes}) => (
+const Anecdotes = ({anecdotes, notification}) => (
   <div>
     <h2>Anecdotes</h2>
+
+    <Notification notification={notification}/>
+
     <ul>
       {anecdotes.map(anecdote =>
         <li key={anecdote.id}>
@@ -114,6 +127,7 @@ const App = () => {
   const addNew = (anecdote) => {
     anecdote.id = (Math.random() * 10000).toFixed(0)
     setAnecdotes(anecdotes.concat(anecdote))
+    setNotification('hello')
   }
 
   const anecdoteById = (id) =>
@@ -159,7 +173,7 @@ const App = () => {
           <About />
         </Route>
         <Route path="/">
-          <Anecdotes anecdotes={anecdotes} />
+          <Anecdotes anecdotes={anecdotes} notification={notification}/>
         </Route>
       </Switch>
 
