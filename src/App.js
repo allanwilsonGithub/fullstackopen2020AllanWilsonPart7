@@ -54,7 +54,7 @@ const Footer = () => (
 )
 
 const CreateNew = (props) => {
-  const [content, setContent] = useState('')
+  const content = useField('text')
   const author = useField('text')
   const info = useField('text')
   const history = useHistory()
@@ -62,7 +62,7 @@ const CreateNew = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.addNew({
-      content,
+      content: content.value,
       author: author.value,
       info: info.value,
       votes: 0
@@ -76,7 +76,7 @@ const CreateNew = (props) => {
       <form onSubmit={handleSubmit}>
         <div>
           content
-          <input name='content' value={content} onChange={(e) => setContent(e.target.value)} />
+          <input  {...content} />
         </div>
         <div>
           author
