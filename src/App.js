@@ -87,9 +87,7 @@ const CreateNew = (props) => {
           <input  {...info} />
         </div>
         <button>create</button>
-        <button type="button" onClick={console.log('1')}>Other Action</button>
       </form>
-
     </div>
   )
 
