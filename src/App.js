@@ -21,7 +21,6 @@ const Anecdotes = ({anecdotes, notification}) => (
 )
 
 const Anecdote = ({ anecdote }) => {
-  console.log(anecdote)
   return (
     <div>
       <h2>{anecdote.content}</h2>
@@ -59,9 +58,9 @@ const CreateNew = (props) => {
   const info = useField('text')
   const history = useHistory()
 
-  let {reset, ...contentWithoutReset} = {...content}
-  let {reset, ...authorWithoutReset} = {...author}
-  let {reset, ...infoWithoutReset} = {...info}
+  const {reset: resetContent, ...contentWithoutReset} = {...content}
+  const {reset: resetAuthor, ...authorWithoutReset} = {...author}
+  const {reset: resetInfo, ...infoWithoutReset} = {...info}
 
   const handleSubmit = (e) => {
     e.preventDefault()
